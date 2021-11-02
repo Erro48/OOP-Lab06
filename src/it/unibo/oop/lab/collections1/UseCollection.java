@@ -80,6 +80,14 @@ public final class UseCollection {
     	
     	arrTime = System.nanoTime() - arrTime;
     	
+    	long linkTime = System.nanoTime();
+    	
+    	for (int i = 0; i < ELEMENTS; i++) {
+    		arrList.add(0, i);
+    	}
+    	
+    	linkTime = System.nanoTime() - linkTime;
+    	
         /*
          * 6) Measure the performance of reading 1000 times an element whose
          * position is in the middle of the collection for both ArrayList and
