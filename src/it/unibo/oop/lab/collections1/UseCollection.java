@@ -1,6 +1,7 @@
 package it.unibo.oop.lab.collections1;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Example class using {@link java.util.List} and {@link java.util.Map}.
@@ -36,6 +37,11 @@ public final class UseCollection {
          * without using any looping construct (for, while), populate it with
          * the same contents of the list of point 1.
          */
+    	
+    	LinkedList<Integer> linkList = new LinkedList<>();
+    	
+    	linkList.addAll(arrList);
+    	
         /*
          * 3) Using "set" and "get" and "size" methods, swap the first and last
          * element of the first list. You can not use any "magic number".
