@@ -12,6 +12,7 @@ public final class UseCollection {
 	private static int RANGE_START = 1000;
 	private static int RANGE_END = 2000;
 	private static int ELEMENTS = 100_000;
+	private static int READ_TIMES = 1000;
 	
 
     private UseCollection() {
@@ -94,6 +95,16 @@ public final class UseCollection {
          * LinkedList, using the collections of point 5. In order to measure
          * times, use as example TestPerformance.java.
          */
+    	
+    	long arrReadTime = System.nanoTime();
+    	int middleIndex = (int)(arrList.size() / 2);
+    	
+    	for (int i = 0; i < READ_TIMES; i++) {
+    		arrList.get(middleIndex);
+    	}
+    	
+    	arrReadTime = System.nanoTime() - arrReadTime;
+    	
         /*
          * 7) Build a new Map that associates to each continent's name its
          * population:
