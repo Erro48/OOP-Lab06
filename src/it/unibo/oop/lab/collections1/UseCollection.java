@@ -47,6 +47,14 @@ public final class UseCollection {
          * element of the first list. You can not use any "magic number".
          * (Suggestion: use a temporary variable)
          */
+    	
+    	int firsElemIndex = 0;
+    	int firstElem = arrList.get(firsElemIndex);
+    	int lastElemIndex = arrList.size() - 1;
+    	
+    	arrList.set(firsElemIndex, arrList.get(lastElemIndex));
+    	arrList.set(lastElemIndex, firstElem);
+    	
         /*
          * 4) Using a single for-each, print the contents of the arraylist.
          */
