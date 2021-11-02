@@ -1,7 +1,9 @@
 package it.unibo.oop.lab.collections1;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Example class using {@link java.util.List} and {@link java.util.Map}.
@@ -131,6 +133,11 @@ public final class UseCollection {
          * 
          * Oceania -> 38,304,000
          */
+    	
+    	Map<String,Long> continentPopulation = new HashMap<>();
+    	
+    	continentPopulation.put("Africa", 1_110_635_000L);
+    	
         /*
          * 8) Compute the population of the world
          */
