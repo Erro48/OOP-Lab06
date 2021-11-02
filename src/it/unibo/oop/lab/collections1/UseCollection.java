@@ -105,6 +105,16 @@ public final class UseCollection {
     	
     	arrReadTime = System.nanoTime() - arrReadTime;
     	
+    	
+    	long linkReadTime = System.nanoTime();
+    	middleIndex = (int)(linkList.size() / 2);
+    	
+    	for (int i = 0; i < READ_TIMES; i++) {
+    		arrList.get(middleIndex);
+    	}
+    	
+    	linkReadTime = System.nanoTime() - linkReadTime;
+    	
         /*
          * 7) Build a new Map that associates to each continent's name its
          * population:
