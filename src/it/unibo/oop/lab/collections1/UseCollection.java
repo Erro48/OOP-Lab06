@@ -11,6 +11,7 @@ public final class UseCollection {
 	
 	private static int RANGE_START = 1000;
 	private static int RANGE_END = 2000;
+	private static int ELEMENTS = 100_000;
 	
 
     private UseCollection() {
@@ -70,6 +71,15 @@ public final class UseCollection {
          * using the previous lists. In order to measure times, use as example
          * TestPerformance.java.
          */
+    	
+    	long arrTime = System.nanoTime();
+    	
+    	for (int i = 0; i < ELEMENTS; i++) {
+    		arrList.add(0, i);
+    	}
+    	
+    	arrTime = System.nanoTime() - arrTime;
+    	
         /*
          * 6) Measure the performance of reading 1000 times an element whose
          * position is in the middle of the collection for both ArrayList and
