@@ -19,6 +19,11 @@ public final class UseCollection {
 
     private UseCollection() {
     }
+    
+    private static double nanoToSecond(long time) {
+    	System.out.println(time);
+    	return ((double)time/1_000_000_000);
+    }
 
     /**
      * @param s
@@ -82,7 +87,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Head insert (arraylist): " + time);
+    	System.out.println("Head insert (arraylist): " + nanoToSecond(time));
     	
     	
     	time = System.nanoTime();
@@ -92,7 +97,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Head insert (linkedlist): " + time);
+    	System.out.println("Head insert (linkedlist): " + nanoToSecond(time));
     	
         /*
          * 6) Measure the performance of reading 1000 times an element whose
@@ -109,7 +114,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Get middle element (arraylist): " + time);
+    	System.out.println("Get middle element (arraylist): " + nanoToSecond(time));
     	
     	
     	time = System.nanoTime();
@@ -120,7 +125,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Get middle element (linkedlist): " + time);
+    	System.out.println("Get middle element (linkedlist): " + nanoToSecond(time));
     	
         /*
          * 7) Build a new Map that associates to each continent's name its
