@@ -146,5 +146,11 @@ public final class UseCollection {
         /*
          * 8) Compute the population of the world
          */
+    	
+    	long total = 0;
+    	for (var e : continentPopulation.entrySet()) {
+    		total += e.getValue();
+    	}
+    	
     }
 }
