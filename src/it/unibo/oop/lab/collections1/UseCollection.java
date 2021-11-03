@@ -71,6 +71,7 @@ public final class UseCollection {
     	for (int elem : arrList) {
     		System.out.print(elem + " ");
     	}
+    	System.out.println();
     	
         /*
          * 5) Measure the performance of inserting new elements in the head of
