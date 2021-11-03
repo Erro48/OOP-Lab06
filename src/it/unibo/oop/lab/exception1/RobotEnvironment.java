@@ -56,6 +56,8 @@ public class RobotEnvironment {
         } else {
             throw new PositionOutOfBoundException(newX, newY);
         }
+        
+        
     }
 
     /**
