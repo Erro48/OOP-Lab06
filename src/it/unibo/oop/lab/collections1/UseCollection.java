@@ -75,21 +75,21 @@ public final class UseCollection {
          * TestPerformance.java.
          */
     	
-    	long arrTime = System.nanoTime();
+    	long time = System.nanoTime();
     	
     	for (int i = 0; i < ELEMENTS; i++) {
     		arrList.add(0, i);
     	}
     	
-    	arrTime = System.nanoTime() - arrTime;
+    	time = System.nanoTime() - time;
     	
-    	long linkTime = System.nanoTime();
+    	time = System.nanoTime();
     	
     	for (int i = 0; i < ELEMENTS; i++) {
     		arrList.add(0, i);
     	}
     	
-    	linkTime = System.nanoTime() - linkTime;
+    	time = System.nanoTime() - time;
     	
         /*
          * 6) Measure the performance of reading 1000 times an element whose
@@ -98,24 +98,24 @@ public final class UseCollection {
          * times, use as example TestPerformance.java.
          */
     	
-    	long arrReadTime = System.nanoTime();
+    	time = System.nanoTime();
     	int middleIndex = (int)(arrList.size() / 2);
     	
     	for (int i = 0; i < READ_TIMES; i++) {
     		arrList.get(middleIndex);
     	}
     	
-    	arrReadTime = System.nanoTime() - arrReadTime;
+    	time = System.nanoTime() - time;
     	
     	
-    	long linkReadTime = System.nanoTime();
+    	time = System.nanoTime();
     	middleIndex = (int)(linkList.size() / 2);
     	
     	for (int i = 0; i < READ_TIMES; i++) {
     		arrList.get(middleIndex);
     	}
     	
-    	linkReadTime = System.nanoTime() - linkReadTime;
+    	time = System.nanoTime() - time;
     	
         /*
          * 7) Build a new Map that associates to each continent's name its
