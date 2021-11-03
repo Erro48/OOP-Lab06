@@ -82,6 +82,8 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
+    	System.out.println("Head insert (arraylist): " + time);
+    	
     	
     	time = System.nanoTime();
     	
@@ -90,6 +92,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
+    	System.out.println("Head insert (linkedlist): " + time);
     	
         /*
          * 6) Measure the performance of reading 1000 times an element whose
@@ -106,6 +109,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
+    	System.out.println("Get middle element (arraylist): " + time);
     	
     	
     	time = System.nanoTime();
@@ -116,6 +120,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
+    	System.out.println("Get middle element (linkedlist): " + time);
     	
         /*
          * 7) Build a new Map that associates to each continent's name its
