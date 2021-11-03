@@ -21,7 +21,6 @@ public final class UseCollection {
     }
     
     private static double nanoToSecond(long time) {
-    	System.out.println(time);
     	return ((double)time/1_000_000_000);
     }
 
@@ -147,21 +146,29 @@ public final class UseCollection {
     	
     	Map<String,Long> continentPopulation = new HashMap<>();
 
+    	time = System.nanoTime();
     	continentPopulation.put("Africa", 1_110_635_000L);
     	continentPopulation.put("Americas", 972_005_000L);
     	continentPopulation.put("Antartica", 0L);
     	continentPopulation.put("Asia", 4_298_723_000L);
     	continentPopulation.put("Europe", 742_452_000L);
     	continentPopulation.put("Oceania", 38_304_000L);
+    	time = System.nanoTime() - time;
+    	
+    	System.out.println("Populate hashmap: " + nanoToSecond(time));
     	
         /*
          * 8) Compute the population of the world
          */
     	
     	long total = 0;
+
+    	time = System.nanoTime();
     	for (var e : continentPopulation.entrySet()) {
     		total += e.getValue();
     	}
+    	time = System.nanoTime() - time;
+    	System.out.println("Compute hashmap: " + nanoToSecond(time));
     	
     }
 }
