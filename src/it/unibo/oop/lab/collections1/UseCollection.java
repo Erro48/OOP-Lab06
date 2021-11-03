@@ -135,8 +135,13 @@ public final class UseCollection {
          */
     	
     	Map<String,Long> continentPopulation = new HashMap<>();
-    	
+
     	continentPopulation.put("Africa", 1_110_635_000L);
+    	continentPopulation.put("Americas", 972_005_000L);
+    	continentPopulation.put("Antartica", 0L);
+    	continentPopulation.put("Asia", 4_298_723_000L);
+    	continentPopulation.put("Europe", 742_452_000L);
+    	continentPopulation.put("Oceania", 38_304_000L);
     	
         /*
          * 8) Compute the population of the world
