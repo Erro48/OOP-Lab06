@@ -83,7 +83,7 @@ public class Robot {
      *            the new Y position to move the robot to
      * @return true if robot gets moved, false otherwise
      */
-    private boolean moveToPosition(final int newX, final int newY) {
+    private boolean moveToPosition(final int newX, final int newY) throws PositionOutOfBoundException {
         boolean returnValue = true;
         if (this.isBatteryEnoughToMove()) {
             /*try {
