@@ -1,7 +1,9 @@
 package it.unibo.oop.lab.collections2;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 
@@ -29,6 +31,15 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
      * 
      * think of what type of keys and values would best suit the requirements
      */
+	
+	/*
+	 * With this implementation:
+	 * 
+	 * Each user has a group
+	 * A user can has no group
+	 * A user can be only in one group
+	 * */
+	private Map<UserImpl,String> followedUsers;
 
     /*
      * [CONSTRUCTORS]
@@ -56,7 +67,12 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
      */
     public SocialNetworkUserImpl(final String name, final String surname, final String user, final int userAge) {
         super(name, surname, user, userAge);
+        this.followedUsers = new HashMap<UserImpl,String>();
     }
+    
+    public SocialNetworkUserImpl(final String name, final String surname, final String user) {
+		this(name, surname, user, -1);
+	}
 
     /*
      * [METHODS]
