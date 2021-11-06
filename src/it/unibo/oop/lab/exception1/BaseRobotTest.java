@@ -63,6 +63,7 @@ public final class BaseRobotTest {
         	r1.moveRight();
         } catch (PositionOutOfBoundException e) {
         	Assert.fail();
+        	Assert.assertNotNull(e);
         }
     }
 
