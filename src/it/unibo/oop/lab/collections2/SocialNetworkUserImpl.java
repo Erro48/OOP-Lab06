@@ -105,7 +105,13 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
 
     @Override
     public List<U> getFollowedUsers() {
-        return null;
+    	List<U> followed = new ArrayList<>();
+    	
+    	for(Map.Entry<U, String> e : this.followedUsers.entrySet()) {
+    		followed.add(e.getKey());
+    	}
+    	
+        return followed;
     }
 
 }
