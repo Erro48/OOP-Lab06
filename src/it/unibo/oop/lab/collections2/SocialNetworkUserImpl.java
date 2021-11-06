@@ -39,7 +39,7 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
 	 * A user can has no group
 	 * A user can be only in one group
 	 * */
-	private Map<UserImpl,String> followedUsers;
+	private Map<U,String> followedUsers;
 
     /*
      * [CONSTRUCTORS]
@@ -67,7 +67,7 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
      */
     public SocialNetworkUserImpl(final String name, final String surname, final String user, final int userAge) {
         super(name, surname, user, userAge);
-        this.followedUsers = new HashMap<UserImpl,String>();
+        this.followedUsers = new HashMap<U,String>();
     }
     
     public SocialNetworkUserImpl(final String name, final String surname, final String user) {
@@ -82,6 +82,10 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
 
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
+    	if(!this.followedUsers.containsKey(user)) {    		
+    		this.followedUsers.put(user, circle);
+    		return true;
+    	}
         return false;
     }
 
