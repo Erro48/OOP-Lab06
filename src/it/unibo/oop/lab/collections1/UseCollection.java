@@ -52,7 +52,10 @@ public final class UseCollection {
     	
     	LinkedList<Integer> linkList = new LinkedList<>();
     	
+    	time = System.nanoTime();
     	linkList.addAll(arrList);
+    	time = System.nanoTime() - time;
+    	System.out.println("Insert " + (RANGE_END - RANGE_START) + " elements in linkedlist: " + nanoToSecond(time));
     	
         /*
          * 3) Using "set" and "get" and "size" methods, swap the first and last
