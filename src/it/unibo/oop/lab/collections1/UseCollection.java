@@ -29,6 +29,7 @@ public final class UseCollection {
      *            unused
      */
     public static void main(final String... s) {
+    	long time;
         /*
          * 1) Create a new ArrayList<Integer>, and populate it with the numbers
          * from 1000 (included) to 2000 (excluded).
@@ -36,9 +37,12 @@ public final class UseCollection {
     	
     	ArrayList<Integer> arrList = new ArrayList<>();
     	
+    	time = System.nanoTime();
     	for (int i = RANGE_START; i < RANGE_END; i++) {
     		arrList.add(i);
     	}
+    	time = System.nanoTime() - time;
+    	System.out.println("Insert " + (RANGE_END - RANGE_START) + " elements in ArrayList: " + nanoToSecond(time));
     	
         /*
          * 2) Create a new LinkedList<Integer> and, in a single line of code
@@ -80,7 +84,7 @@ public final class UseCollection {
          * TestPerformance.java.
          */
     	
-    	long time = System.nanoTime();
+    	time = System.nanoTime();
     	
     	for (int i = 0; i < ELEMENTS; i++) {
     		arrList.add(0, i);
