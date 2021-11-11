@@ -74,10 +74,14 @@ public final class UseCollection {
          * 4) Using a single for-each, print the contents of the arraylist.
          */
     	
+    	time = System.nanoTime();
     	for (int elem : arrList) {
     		System.out.print(elem + " ");
     	}
     	System.out.println();
+
+    	time = System.nanoTime() - time;
+    	System.out.println("Print " + (RANGE_END - RANGE_START) + " elements from arraylist: " + nanoToSecond(time));
     	
         /*
          * 5) Measure the performance of inserting new elements in the head of
