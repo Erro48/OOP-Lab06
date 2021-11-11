@@ -3,7 +3,6 @@ package it.unibo.oop.lab.exception1;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable.UnaryOp.Not;
 import org.junit.Assert;
 
 import static org.junit.Assert.assertFalse;
