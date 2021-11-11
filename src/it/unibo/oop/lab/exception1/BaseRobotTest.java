@@ -54,12 +54,17 @@ public final class BaseRobotTest {
         /*
          * 2) Move to the top until it reaches the upper right conrner of the world
          */
-        for (int i = 0; i < RobotEnvironment.WORLD_Y_UPPER_LIMIT; i++) {
-            // check if position if coherent
-            assertTrue("[CHECKING MOVING UP]", r1.moveUp());
+        try {
+        	for (int i = 0; i < RobotEnvironment.WORLD_Y_UPPER_LIMIT; i++) {
+                // check if position if coherent
+                assertTrue("[CHECKING MOVING UP]", r1.moveUp());
+            }
+            // reached the upper limit of the world
+            assertFalse("[CHECKING MOVING UP]", r1.moveUp());
+            Assert.fail();
+        } catch (PositionOutOfBoundException e) {
+        	Assert.assertNotNull(e.getMessage());
         }
-        // reached the upper limit of the world
-        assertFalse("[CHECKING MOVING UP]", r1.moveUp());
         // checking positions x=50; y=80
         assertEquals("[MOVING RIGHT ROBOT POS X]", RobotEnvironment.WORLD_X_UPPER_LIMIT, r1.getEnvironment().getCurrPosX());
         assertEquals("[MOVING RIGHT ROBOT POS Y]", RobotEnvironment.WORLD_Y_UPPER_LIMIT, r1.getEnvironment().getCurrPosY());
