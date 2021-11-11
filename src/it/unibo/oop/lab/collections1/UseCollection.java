@@ -20,8 +20,8 @@ public final class UseCollection {
     private UseCollection() {
     }
     
-    private static double nanoToSecond(long time) {
-    	return ((double)time/1_000_000_000);
+    private static double nanoToMills(long time) {
+    	return ((double)time/1_000_000);
     }
 
     /**
@@ -42,7 +42,7 @@ public final class UseCollection {
     		arrList.add(i);
     	}
     	time = System.nanoTime() - time;
-    	System.out.println("Insert " + (RANGE_END - RANGE_START) + " elements in ArrayList: " + nanoToSecond(time));
+    	System.out.println("Insert " + (RANGE_END - RANGE_START) + " elements in ArrayList: " + nanoToMills(time));
     	
         /*
          * 2) Create a new LinkedList<Integer> and, in a single line of code
@@ -55,7 +55,7 @@ public final class UseCollection {
     	time = System.nanoTime();
     	linkList.addAll(arrList);
     	time = System.nanoTime() - time;
-    	System.out.println("Insert " + (RANGE_END - RANGE_START) + " elements in linkedlist: " + nanoToSecond(time));
+    	System.out.println("Insert " + (RANGE_END - RANGE_START) + " elements in linkedlist: " + nanoToMills(time));
     	
         /*
          * 3) Using "set" and "get" and "size" methods, swap the first and last
@@ -81,7 +81,7 @@ public final class UseCollection {
     	System.out.println();
 
     	time = System.nanoTime() - time;
-    	System.out.println("Print " + (RANGE_END - RANGE_START) + " elements from arraylist: " + nanoToSecond(time));
+    	System.out.println("Print " + (RANGE_END - RANGE_START) + " elements from arraylist: " + nanoToMills(time));
     	
         /*
          * 5) Measure the performance of inserting new elements in the head of
@@ -98,7 +98,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Insert " + ELEMENTS +" elements in head of arraylist: " + nanoToSecond(time));
+    	System.out.println("Insert " + ELEMENTS +" elements in head of arraylist: " + nanoToMills(time));
     	
     	
     	time = System.nanoTime();
@@ -108,7 +108,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Insert " + ELEMENTS + " elements in head of linkedlist: " + nanoToSecond(time));
+    	System.out.println("Insert " + ELEMENTS + " elements in head of linkedlist: " + nanoToMills(time));
     	
         /*
          * 6) Measure the performance of reading 1000 times an element whose
@@ -125,7 +125,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Get middle element (arraylist): " + nanoToSecond(time));
+    	System.out.println("Get middle element (arraylist): " + nanoToMills(time));
     	
     	
     	time = System.nanoTime();
@@ -136,7 +136,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Get middle element (linkedlist): " + nanoToSecond(time));
+    	System.out.println("Get middle element (linkedlist): " + nanoToMills(time));
     	
         /*
          * 7) Build a new Map that associates to each continent's name its
@@ -166,7 +166,7 @@ public final class UseCollection {
     	continentPopulation.put("Oceania", 38_304_000L);
     	time = System.nanoTime() - time;
     	
-    	System.out.println("Populate hashmap: " + nanoToSecond(time));
+    	System.out.println("Populate hashmap: " + nanoToMills(time));
     	
         /*
          * 8) Compute the population of the world
@@ -179,7 +179,7 @@ public final class UseCollection {
     		total += e.getValue();
     	}
     	time = System.nanoTime() - time;
-    	System.out.println("Compute hashmap: " + nanoToSecond(time));
+    	System.out.println("Compute hashmap: " + nanoToMills(time));
     	
     }
 }
