@@ -98,7 +98,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Head insert (arraylist): " + nanoToSecond(time));
+    	System.out.println("Insert " + ELEMENTS +" elements in head of arraylist: " + nanoToSecond(time));
     	
     	
     	time = System.nanoTime();
@@ -108,7 +108,7 @@ public final class UseCollection {
     	}
     	
     	time = System.nanoTime() - time;
-    	System.out.println("Head insert (linkedlist): " + nanoToSecond(time));
+    	System.out.println("Insert " + ELEMENTS + " elements in head of linkedlist: " + nanoToSecond(time));
     	
         /*
          * 6) Measure the performance of reading 1000 times an element whose
