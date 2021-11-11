@@ -3,6 +3,7 @@ package it.unibo.oop.lab.exception1;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable.UnaryOp.Not;
 import org.junit.Assert;
 
 import static org.junit.Assert.assertFalse;
@@ -48,6 +49,8 @@ public final class BaseRobotTest {
         	Assert.fail();
         } catch (PositionOutOfBoundException e) {   
         	Assert.assertNotNull(e.getMessage());
+        } catch (NotEnoughBatteryException e) {
+        	Assert.assertNotNull(e.getMessage());
         }
         // checking positions x=50; y=0
         assertEquals("[MOVING RIGHT ROBOT POS X]", RobotEnvironment.WORLD_X_UPPER_LIMIT, r1.getEnvironment().getCurrPosX());
@@ -64,6 +67,8 @@ public final class BaseRobotTest {
         	r1.moveUp();
             Assert.fail();
         } catch (PositionOutOfBoundException e) {
+        	Assert.assertNotNull(e.getMessage());
+        } catch (NotEnoughBatteryException e) {
         	Assert.assertNotNull(e.getMessage());
         }
         // checking positions x=50; y=80
