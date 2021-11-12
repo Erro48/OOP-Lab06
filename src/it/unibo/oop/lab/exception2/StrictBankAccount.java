@@ -63,7 +63,7 @@ public class StrictBankAccount implements BankAccount {
      * 
      * {@inheritDoc}
      */
-    public void depositFromATM(final int usrID, final double amount) {
+    public void depositFromATM(final int usrID, final double amount) throws WrongAccountHolderException {
         if (totalTransactionCount < maximumAllowedATMTransactions) {
             this.deposit(usrID, amount - StrictBankAccount.ATM_TRANSACTION_FEE);
             increaseTransactionsCount();
@@ -74,7 +74,7 @@ public class StrictBankAccount implements BankAccount {
      * 
      * {@inheritDoc}
      */
-    public void withdrawFromATM(final int usrID, final double amount) {
+    public void withdrawFromATM(final int usrID, final double amount) throws WrongAccountHolderException {
         if (totalTransactionCount < maximumAllowedATMTransactions) {
             this.withdraw(usrID, amount + StrictBankAccount.ATM_TRANSACTION_FEE);
         }
@@ -101,11 +101,15 @@ public class StrictBankAccount implements BankAccount {
      * @param usrID
      *            id of the user related to these fees
      */
-    public void computeManagementFees(final int usrID) {
+    public void computeManagementFees(final int usrID) throws WrongAccountHolderException {
         final double feeAmount = MANAGEMENT_FEE + (totalTransactionCount * StrictBankAccount.TRANSACTION_FEE);
-        if (checkUser(usrID) && isWithdrawAllowed(feeAmount)) {
-            balance -= MANAGEMENT_FEE + totalTransactionCount * StrictBankAccount.TRANSACTION_FEE;
-            totalTransactionCount = 0;
+        if (checkUser(usrID)) {
+        	if (isWithdrawAllowed(feeAmount)) {
+        		balance -= MANAGEMENT_FEE + totalTransactionCount * StrictBankAccount.TRANSACTION_FEE;
+        		totalTransactionCount = 0;
+        	}
+        } else {
+        	throw new WrongAccountHolderException(usrID);
         }
     }
 
