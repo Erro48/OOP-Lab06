@@ -48,15 +48,18 @@ public class StrictBankAccount implements BankAccount {
      * 
      * {@inheritDoc}
      */
-    public void withdraw(final int usrID, final double amount) throws WrongAccountHolderException {
-        if (checkUser(usrID)) {
-        	if (isWithdrawAllowed(amount)) {
-        		this.balance -= amount;
-        		increaseTransactionsCount();
-        	}
-        } else {
+    public void withdraw(final int usrID, final double amount) throws WrongAccountHolderException, NotEnoughFoundException {
+        if (!checkUser(usrID)) {
         	throw new WrongAccountHolderException(usrID);
         }
+        
+        if (isWithdrawAllowed(amount)) {
+        	throw new NotEnoughFoundException(amount);
+        }
+
+    	this.balance -= amount;
+		increaseTransactionsCount();
+    
     }
 
     /**
@@ -74,7 +77,7 @@ public class StrictBankAccount implements BankAccount {
      * 
      * {@inheritDoc}
      */
-    public void withdrawFromATM(final int usrID, final double amount) throws WrongAccountHolderException {
+    public void withdrawFromATM(final int usrID, final double amount) throws WrongAccountHolderException, NotEnoughFoundException {
         if (totalTransactionCount < maximumAllowedATMTransactions) {
             this.withdraw(usrID, amount + StrictBankAccount.ATM_TRANSACTION_FEE);
         }
