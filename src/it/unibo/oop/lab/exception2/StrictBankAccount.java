@@ -66,10 +66,12 @@ public class StrictBankAccount implements BankAccount {
      * 
      * {@inheritDoc}
      */
-    public void depositFromATM(final int usrID, final double amount) throws WrongAccountHolderException {
+    public void depositFromATM(final int usrID, final double amount) throws WrongAccountHolderException, TransactionsOverQuotaException {
         if (totalTransactionCount < maximumAllowedATMTransactions) {
             this.deposit(usrID, amount - StrictBankAccount.ATM_TRANSACTION_FEE);
             increaseTransactionsCount();
+        } else {
+        	throw new TransactionsOverQuotaException(maximumAllowedATMTransactions); 
         }
     }
 
@@ -77,9 +79,14 @@ public class StrictBankAccount implements BankAccount {
      * 
      * {@inheritDoc}
      */
-    public void withdrawFromATM(final int usrID, final double amount) throws WrongAccountHolderException, NotEnoughFoundException {
+    public void withdrawFromATM(final int usrID, final double amount) throws
+    		WrongAccountHolderException,
+    		NotEnoughFoundException,
+    		TransactionsOverQuotaException {
         if (totalTransactionCount < maximumAllowedATMTransactions) {
             this.withdraw(usrID, amount + StrictBankAccount.ATM_TRANSACTION_FEE);
+        } else {
+        	throw new TransactionsOverQuotaException(maximumAllowedATMTransactions); 
         }
     }
 
