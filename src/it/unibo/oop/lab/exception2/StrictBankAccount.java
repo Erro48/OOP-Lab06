@@ -101,16 +101,19 @@ public class StrictBankAccount implements BankAccount {
      * @param usrID
      *            id of the user related to these fees
      */
-    public void computeManagementFees(final int usrID) throws WrongAccountHolderException {
+    public void computeManagementFees(final int usrID) throws WrongAccountHolderException, NotEnoughFoundException {
         final double feeAmount = MANAGEMENT_FEE + (totalTransactionCount * StrictBankAccount.TRANSACTION_FEE);
-        if (checkUser(usrID)) {
-        	if (isWithdrawAllowed(feeAmount)) {
-        		balance -= MANAGEMENT_FEE + totalTransactionCount * StrictBankAccount.TRANSACTION_FEE;
-        		totalTransactionCount = 0;
-        	}
-        } else {
+        
+        if (!checkUser(usrID)) {
         	throw new WrongAccountHolderException(usrID);
         }
+        
+        if (!isWithdrawAllowed(feeAmount)) {
+        	throw new NotEnoughFoundException(feeAmount);
+        }
+        
+		balance -= MANAGEMENT_FEE + totalTransactionCount * StrictBankAccount.TRANSACTION_FEE;
+		totalTransactionCount = 0;
     }
 
     private boolean checkUser(final int id) {
