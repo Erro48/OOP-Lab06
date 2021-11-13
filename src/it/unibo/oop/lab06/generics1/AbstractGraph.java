@@ -1,4 +1,4 @@
-package oop.exercises.graph;
+package it.unibo.oop.lab06.generics1;
 
 import java.util.ArrayList;
 import java.util.HashSet;
