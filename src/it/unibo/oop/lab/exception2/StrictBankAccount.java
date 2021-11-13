@@ -53,7 +53,7 @@ public class StrictBankAccount implements BankAccount {
         	throw new WrongAccountHolderException(usrID);
         }
         
-        if (isWithdrawAllowed(amount)) {
+        if (!isWithdrawAllowed(amount)) {
         	throw new NotEnoughFoundException(amount);
         }
 
