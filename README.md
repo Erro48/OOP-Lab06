@@ -7,9 +7,9 @@ In ciascun package, troverete:
 
 L'ordine degli esercizi è il seguente:
 
-1. `mergeconflict` (con tempo massimo 20 minuti)
-2. `collections1`
-3. `exception1`
-4. `collections2`
-5. `exception2`
-6. `generics1`
+1. `mergeconflict` (con tempo massimo 20 minuti) -- N
+2. `collections1` -- N
+3. `exception1` -- N
+4. `collections2` -- N
+5. `exception2` -- N
+6. `generics1` -- N
